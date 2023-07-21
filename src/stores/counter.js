@@ -10,9 +10,9 @@ export const useCounterStore = defineStore('useCounterStore', () => {
   }
  async function getWeatherLocation(){
 try {
-  const {data} = await axios.get('http://api.weatherstack.com/current?access_key=6293f5c0e72345b869a9d41eecd52185&query=New York');
-  dataLocation.value = data
-  console.log(dataLocation.value)
+  const {data} = await axios.get('http://api.weatherstack.com/current?access_key=6293f5c0e72345b869a9d41eecd52185&query=biguacu');
+  dataLocation.value =  data
+
 } catch (error) {
 
 }

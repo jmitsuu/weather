@@ -7,7 +7,7 @@ import HomeView from './views/HomeView.vue';
 
 <template>
   <section class="flex ">
-    <main class="absolute w-full h-full bg-gradient-to-b from-sky-950 to-slate-500">
+    <main class="absolute w-full h-screen  bg-gradient-to-b from-sky-950 to-slate-500">
       <Menu/>
     </main>
    <div>
