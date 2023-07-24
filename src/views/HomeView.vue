@@ -79,13 +79,16 @@ async function getWeather() {
 const dataLocal = [lat, lon];
 latLong.value = [dataLocal[0], dataLocal[1]];
 
-if(data.weather[0].main  === "Clear" ){
+if(data.weather[0].main  == "Clear" ){
   setBgWeather.value = "bg-bgSun bg-cover"
 }
-if(data.weather[0].main  === "Rain" ){
+if(data.weather[0].main  == "Rain" ){
   setBgWeather.value = "bg-bgRain bg-cover text-white"
 }
-if(data.weather[0].main  === "Mist" ){
+if(data.weather[0].main  == "Clouds" ){
+  setBgWeather.value = "bg-bgRain bg-cover text-white"
+}
+if(data.weather[0].main  == "Mist" ){
   setBgWeather.value = "bg-bgMist bg-cover text-white"
 }
 
