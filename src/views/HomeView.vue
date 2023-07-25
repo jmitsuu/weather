@@ -1,5 +1,6 @@
 <template>
-  <div class="flex flex-col justify-center">
+  <section class="  ">
+  <div class="flex flex-col justify-center ">
     <h1 class="font-sans text-4xl font-bold text-gray-200 text-center">
       Previsão do Tempo
     </h1>
@@ -71,6 +72,7 @@
     </div>
     <Map :location="latLong" class="mt-9 rounded-lg" />
   </div>
+</section>
 </template>
 <script setup>
 import { onMounted, ref, reactive, defineAsyncComponent } from "vue";
@@ -85,7 +87,9 @@ const searchCity = ref();
 const latLong = ref();
 const setBgWeather = ref();
 async function getWeather() {
-  const {data} = await fetchWeather.get(`/weather?q=${searchCity.value}&units=metric&lang=pt_BR`)
+ 
+  try {
+    const {data} = await fetchWeather.get(`/weather?q=${searchCity.value}&units=metric&lang=pt_BR`)
   temperature.value = [data];
   const { lon, lat } = data.coord;
   const dataLocal = [lat, lon];
@@ -103,8 +107,15 @@ async function getWeather() {
   if (data.weather[0].main == "Mist") {
     setBgWeather.value = "bg-bgMist bg-cover text-white";
   }
+    
+  } catch ({response}) {
+    console.log(response.status)
+    if(response.status === 400) alert('O campo de busca não pode estar vazio')
+    if(response.status === 404) alert('Cidade não foi localizada')
+    
+  }
 
-  console.log(data);
+
 }
 
 onMounted(() => {

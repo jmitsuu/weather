@@ -1,19 +1,16 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+
 import Menu from './components/Menu.vue'
-import HomeView from './views/HomeView.vue';
 
 </script>
 
-<template>
+<template> 
+   <main class="absolute w-full   bg-gradient-to-b  from-cyan-900 to-slate-500 ">
   <section class="flex ">
-    <main class="absolute w-full bg-gradient-to-b from-cyan-900 to-slate-500">
-      <Menu />
-    </main>
-   <div>
 
-   </div>
+      <Menu  />
+
   </section>
- 
+</main>
 </template>
 
