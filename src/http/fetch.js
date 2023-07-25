@@ -1,8 +1,10 @@
 import axios from "axios"
-
-export async function request (city){
-
- await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=43744dd7f1d88e520ee89b5e41fd554b`)
-
-
-}
+const token = import.meta.env.VITE_API_TOKEN
+export const fetchWeather = axios.create({
+  baseURL:"https://api.openweathermap.org/data/2.5",
+})
+fetchWeather.interceptors.request.use((config) =>{
+  config.params = config.params || {};
+  config.params['appid'] = token
+  return config;
+})

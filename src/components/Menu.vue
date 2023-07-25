@@ -18,10 +18,10 @@ const routes = [
     route: '/',
     title: 'Home'
   },
-  {
-    route: '/about',
-    title: 'About'
-  }
+  // {
+  //   route: '/about',
+  //   title: 'About'
+  // }
 ]
 </script>
 <template>
@@ -32,7 +32,7 @@ const routes = [
       </nav>
 
     </header>
-    <div class="flex justify-center items-center p-2">
+    <div class="flex justify-center items-center p-2 h-screen">
       <RouterView />
     </div>
   </section>
